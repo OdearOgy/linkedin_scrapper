@@ -26,26 +26,7 @@ const login = async page => {
 	await page.click(sbmt_sl);
 };
 
-const scrapper = async profileUrl => {
-	const { nameSl, titleSl, aboutSl, experienceSl } = PROFILE_SELECTORS;
-
-	const browser = await puppeteer.launch({
-		headless: false,
-		slowMo: 20,
-		executablePath: chromePath,
-	});
-
-	const browserContext = await browser.createIncognitoBrowserContext();
-	const page = await browserContext.newPage();
-	await page.setViewport({
-		width: 1280,
-		height: 720,
-	});
-
-	await login(page);
-
-	await page.goto(profileUrl);
-
+const logged_scrapping = async page => {
 	const content = await page.content();
 	const $ = cheerio.load(content);
 	let person = {
@@ -69,6 +50,31 @@ const scrapper = async profileUrl => {
 
 	let personData = JSON.stringify(person);
 	fs.writeFileSync(`${person['name'].split(' ').join('_')}_person.json`, personData);
+};
+
+const scrapper = async profileUrl => {
+	const { nameSl, titleSl, aboutSl, experienceSl } = PROFILE_SELECTORS;
+
+	const browser = await puppeteer.launch({
+		headless: false,
+		slowMo: 20,
+		executablePath: chromePath,
+	});
+
+	const browserContext = await browser.createIncognitoBrowserContext();
+	const page = await browserContext.newPage();
+	await page.setViewport({
+		width: 1280,
+		height: 720,
+	});
+
+	if (type === 'logged') {
+		await login(page);
+		await page.goto(profileUrl);
+		await logged_scrapping(page);
+	} else {
+		await anonymous_scrapping(page);
+	}
 
 	await browser.close();
 };

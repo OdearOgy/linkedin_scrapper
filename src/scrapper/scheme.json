@@ -1,0 +1,55 @@
+{
+	"Last": "Doe",
+	"First": "John",
+	"title": "CEO at Google",
+	"location": "San Francisco",
+	"about": "I've had the fortune of being on several high performing teams in various high stakes arenas -investment banking, private equity, venture-backed startup, social enterprise, rugby (yes, rugby) - on three continents and on both coasts of the US.",
+	"experience": [
+		{
+			"title": "Venture Partner",
+			"company": "SaaStr",
+			"date": {
+				"start": "Jan 2019",
+				"end": "present",
+				"total": "1 year 3 months"
+			},
+			"location": "San Francisco, Bay Area",
+			"about": "Investing for the SaaStr Fund and helping our portfolio and others grow. See you at the SaaStr Annual!"
+		},
+		{
+			"title": "Board Member, Cofounder, Advisor",
+			"company": "Teamable Software",
+			"date": {
+				"start": "Dec 2013",
+				"end": "present",
+				"total": "6 years 4 months"
+			},
+			"location": "San Francisco, CA",
+			"about": "After 5 years leading a team of courageous teammates who are innovating the best way to find and attract the right talent, I’ve transitioned to a board and advisor role. Notable accomplishments during my tenure as CEO include raising 3 rounds of venture capital from tier 1 VC funds (5x’ing our valuation in the process), building a global B2B product used by 100s of companies and over 20,000 people in 40+ countries, acquiring our most intelligent competitor and integrating their machine..."
+		}
+	],
+	"education": [
+		{
+			"organization": "University of Pennsylvania - The Wharton School",
+			"degree": "BS in EconomicsFinance and Information Systems"
+		}
+	],
+
+	"alsoPeople": [
+		{
+			"first": "Jess",
+			"last": "Lee",
+			"title": "Partner at Sequoia Capital / Co-Founder & CEO of Polyvore"
+		},
+		{
+			"first": "Peter",
+			"last": "Mullen",
+			"title": "Strategy & Business Development at Topio Networks"
+		},
+		{
+			"first": "Meruzhan",
+			"last": "Danielyan",
+			"title": "CEO at Teamable Software"
+		}
+	]
+}
