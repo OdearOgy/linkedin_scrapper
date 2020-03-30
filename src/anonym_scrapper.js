@@ -40,10 +40,22 @@ const scrapper = async url => {
 	const content = await page.content();
 	const $ = await cheerio.load(content);
 	let person = {
-		name: $(nameSl)
-			.text()
-			.trim()
-			.trimNewLines(),
+		name: {
+			first: $(nameSl)
+				.text()
+				.trim()
+				.split(' ')
+				.shift(),
+			last: $(nameSl)
+				.text()
+				.trim()
+				.split(' ')
+				.pop(),
+			fullName: $(nameSl)
+				.text()
+				.trim()
+				.trimNewLines(),
+		},
 		title: $(titleSl)
 			.text()
 			.trim()
@@ -127,6 +139,27 @@ const scrapper = async url => {
 				.text()
 				.trim()
 				.trimNewLines(),
+
+			name: {
+				first: $(elem)
+					.find(alsoPeopleData['name'])
+					.text()
+					.trim()
+					.split(' ')
+					.shift(),
+				last: $(elem)
+					.find(alsoPeopleData['name'])
+					.text()
+					.trim()
+					.split(' ')
+					.pop(),
+				fullName: $(elem)
+					.find(alsoPeopleData['name'])
+					.text()
+					.trim()
+					.trimNewLines(),
+			},
+
 			title: $(elem)
 				.find(alsoPeopleData['title'])
 				.text()
@@ -136,7 +169,7 @@ const scrapper = async url => {
 	});
 
 	let personData = JSON.stringify(person);
-	fs.writeFileSync(`${person['name'].split(' ').join('_')}_person.json`, personData);
+	fs.writeFileSync(`${person['name']['fullName'].split(' ').join('_')}_person.json`, personData);
 	await browser.close();
 	process.exit();
 };

@@ -1,6 +1,9 @@
 {
-	"Last": "Doe",
-	"First": "John",
+	"name": {
+		"Last": "Doe",
+		"First": "John",
+		"fullName": "John Doe"
+	},
 	"title": "CEO at Google",
 	"location": "San Francisco",
 	"about": "I've had the fortune of being on several high performing teams in various high stakes arenas -investment banking, private equity, venture-backed startup, social enterprise, rugby (yes, rugby) - on three continents and on both coasts of the US.",
