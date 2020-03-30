@@ -14,9 +14,9 @@ To do that
 
 -   Add following lines
 
-        IN_LINKEDIN_EMAIL=<Your linkedin email>
+        IN_EMAIL=<Your linkedin email>
 
-        IN_LINKEDIN_PASSWORD=<Your linkedin password>
+        IN_PASSWORD=<Your linkedin password>
 
 -   Run scrapper
 
