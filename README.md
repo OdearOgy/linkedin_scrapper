@@ -20,7 +20,7 @@ To do that
 
 -   Run scrapper
 
-        node ./src/scrapper.js <linkedin url> logged
+        node ./src/scrapper.js <linkedinUrl> logged
 
 -   This will create a json file in project folder with the person's `fist_last_name.json`
 
@@ -31,7 +31,7 @@ You can scrap any linkedin profile by just downloading it's html page then runni
 To do that
 
 -   Download the html file
--   Save it as index.html into project folder
+-   Save it into project folder
 -   Run the scrapper
 
         node ./src/anonym_scrapper.js <htmlFilePath> <portNumber>
