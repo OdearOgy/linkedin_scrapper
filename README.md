@@ -14,12 +14,13 @@ To do that
 
 -   Add following lines
 
-    `IN_LINKEDIN_EMAIL=<Your linkedin email>`
-    `IN_LINKEDIN_PASSWORD=<Your linkedin password>`
+        IN_LINKEDIN_EMAIL=<Your linkedin email>
+
+        IN_LINKEDIN_PASSWORD=<Your linkedin password>
 
 -   Run scrapper
 
-          node ./src/scrapper/scrapper.js <linkedin url> logged
+        node ./src/scrapper/scrapper.js <linkedin url> logged
 
 -   This will create a json file in project folder with the person's `fist_last_name.json`
 
@@ -33,6 +34,6 @@ To do that
 -   Save it as index.html into project folder
 -   Run the scrapper
 
-    `node ./src/scrapper/anonym_scrapper.js`
+        node ./src/scrapper/anonym_scrapper.js
 
 -   This will create a json file in project folder with the person's `fist_last_name.json`
