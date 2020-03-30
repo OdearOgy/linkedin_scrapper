@@ -17,6 +17,7 @@ const anon_prof_sl = {
 	titleSl:
 		'body > main > section.core-rail > section > section.top-card-layout > div > div.top-card-layout__entity-info-container > div:nth-child(1) > h2',
 	aboutSl: 'body > main > section.core-rail > section > section.summary.pp-section > p',
+	experienceSl: 'body > main > section.core-rail > section > section.experience.pp-section > ul',
 };
 
 const prof_sl = {
