@@ -1,15 +1,12 @@
 const puppeteer = require('puppeteer');
 const cheerio = require('cheerio');
 const fs = require('fs');
-const CONSTANTS = require('./constants');
 const chromePath = '/usr/bin/google-chrome-stable';
+const { LOGIN_SELECTORS, PROFILE_SELECTORS, ANONYMOUS_PROFILE_SELECTORS } = require('./selectors');
+const { LOGIN_DATA } = require('./constants');
 
 // https://www.linkedin.com/in/tigran-sargsyan-a7455a51/
-
-const args = process.argv.slice(2);
-let [url, type] = args;
-
-const { LOGIN_SELECTORS, LOGIN_DATA, PROFILE_SELECTORS, ANONYMOUS_PROFILE_SELECTORS } = CONSTANTS;
+let [url, type] = process.argv.slice(2);
 
 const login = async page => {
 	const { eml_sl, pass_sl, sbmt_sl } = LOGIN_SELECTORS;

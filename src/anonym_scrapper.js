@@ -3,7 +3,7 @@ const cheerio = require('cheerio');
 const fs = require('fs');
 const http = require('http');
 
-const { ANONYMOUS_PROFILE_SELECTORS } = require('./constants');
+const { ANONYMOUS_PROFILE_SELECTORS } = require('./selectors');
 const [filePath, port] = process.argv.slice(2);
 const localUrl = `http://127.0.0.1:${port}`;
 
