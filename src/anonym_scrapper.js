@@ -53,13 +53,11 @@ const scrapper = async url => {
 				.pop(),
 			fullName: $(nameSl)
 				.text()
-				.trim()
-				.trimNewLines(),
+				.trim(),
 		},
 		title: $(titleSl)
 			.text()
-			.trim()
-			.trimNewLines(),
+			.trim(),
 		about: $(aboutSl)
 			.text()
 			.trim()
@@ -74,36 +72,30 @@ const scrapper = async url => {
 			title: $(elem)
 				.find(experienceData['title'])
 				.text()
-				.trim()
-				.trimNewLines(),
+				.trim(),
 			company: $(elem)
 				.find(experienceData['company'])
 				.text()
-				.trim()
-				.trimNewLines(),
+				.trim(),
 			date: {
 				start: $(elem)
 					.find(experienceData['date']['start'])
 					.text()
-					.trim()
-					.trimNewLines(),
+					.trim(),
 				end:
 					$(elem)
 						.find(experienceData['date']['end'])
 						.text()
-						.trim()
-						.trimNewLines() || 'present',
+						.trim() || 'present',
 				total: $(elem)
 					.find(experienceData['date']['total'])
 					.text()
-					.trim()
-					.trimNewLines(),
+					.trim(),
 			},
 			location: $(elem)
 				.find(experienceData['location'])
 				.text()
-				.trim()
-				.trimNewLines(),
+				.trim(),
 			about: $(elem)
 				.find(experienceData['about'])
 				.text()
@@ -117,8 +109,7 @@ const scrapper = async url => {
 			organization: $(elem)
 				.find(educationData['organization'])
 				.text()
-				.trim()
-				.trimNewLines(),
+				.trim(),
 			degree: `
 					${$(elem)
 						.find(educationData['degree']['start'])
@@ -126,20 +117,12 @@ const scrapper = async url => {
 					${$(elem)
 						.find(educationData['degree']['end'])
 						.text()}
-						`
-				.trim()
-				.trimNewLines(),
+						`.trim(),
 		});
 	});
 
 	$(`${alsoPeopleData['sl']} > li`).each((i, elem) => {
 		person['alsoPeople'][i] = Object.assign({
-			name: $(elem)
-				.find(alsoPeopleData['name'])
-				.text()
-				.trim()
-				.trimNewLines(),
-
 			name: {
 				first: $(elem)
 					.find(alsoPeopleData['name'])
@@ -156,15 +139,13 @@ const scrapper = async url => {
 				fullName: $(elem)
 					.find(alsoPeopleData['name'])
 					.text()
-					.trim()
-					.trimNewLines(),
+					.trim(),
 			},
 
 			title: $(elem)
 				.find(alsoPeopleData['title'])
 				.text()
-				.trim()
-				.trimNewLines(),
+				.trim(),
 		});
 	});
 
