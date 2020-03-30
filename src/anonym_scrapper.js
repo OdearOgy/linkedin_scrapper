@@ -117,7 +117,9 @@ const scrapper = async url => {
 					${$(elem)
 						.find(educationData['degree']['end'])
 						.text()}
-						`.trim(),
+						`
+				.trim()
+				.trimNewLines(),
 		});
 	});
 
