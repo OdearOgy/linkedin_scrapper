@@ -20,7 +20,7 @@ To do that
 
 -   Run scrapper
 
-        node ./src/scrapper/scrapper.js <linkedin url> logged
+        node ./src/scrapper.js <linkedin url> logged
 
 -   This will create a json file in project folder with the person's `fist_last_name.json`
 
@@ -34,6 +34,6 @@ To do that
 -   Save it as index.html into project folder
 -   Run the scrapper
 
-        node ./src/scrapper/anonym_scrapper.js
+        node ./src/anonym_scrapper.js <htmlFilePath> <portNumber>
 
 -   This will create a json file in project folder with the person's `fist_last_name.json`

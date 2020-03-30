@@ -4,9 +4,11 @@ const fs = require('fs');
 const http = require('http');
 
 const { ANONYMOUS_PROFILE_SELECTORS } = require('./constants');
+const [filePath, port] = process.argv.slice(2);
+const localUrl = `http://127.0.0.1:${port}`;
 
 // hosting the html file on localhost:8000
-fs.readFile('./index.html', (err, html) => {
+fs.readFile(filePath, (err, html) => {
 	if (err) {
 		throw err;
 	}
@@ -14,7 +16,7 @@ fs.readFile('./index.html', (err, html) => {
 		response.writeHeader(200, { 'Content-Type': 'text/html' });
 		response.write(html);
 		response.end();
-	}).listen(8000);
+	}).listen(port);
 });
 
 const scrapper = async url => {
@@ -52,6 +54,7 @@ const scrapper = async url => {
 	let personData = JSON.stringify(person);
 	fs.writeFileSync(`${person['name'].split(' ').join('_')}_person.json`, personData);
 	await browser.close();
+	process.exit();
 };
 
-scrapper('http://127.0.0.1:8000');
+scrapper(localUrl);
