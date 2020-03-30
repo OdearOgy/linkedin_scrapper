@@ -39,6 +39,11 @@ const anon_prof_sl = {
 			end: 'div > h4 > span:nth-child(2)',
 		},
 	},
+	alsoPeopleData: {
+		sl: 'body > main > section.right-rail > section.browsemap.right-rail-section > ul',
+		name: 'div > h3',
+		title: 'div > h4',
+	},
 };
 
 const prof_sl = {

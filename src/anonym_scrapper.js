@@ -24,7 +24,7 @@ String.prototype.trimNewLines = function() {
 };
 
 const scrapper = async url => {
-	const { nameSl, titleSl, aboutSl, experienceData, educationData } = ANONYMOUS_PROFILE_SELECTORS;
+	const { nameSl, titleSl, aboutSl, experienceData, educationData, alsoPeopleData } = ANONYMOUS_PROFILE_SELECTORS;
 
 	const browser = await puppeteer.launch({
 		headless: false,
@@ -57,6 +57,7 @@ const scrapper = async url => {
 			.trimNewLines(),
 		experience: [],
 		education: [],
+		alsoPeople: [],
 	};
 
 	$(`${experienceData['sl']} > li`).each((i, elem) => {
@@ -117,6 +118,21 @@ const scrapper = async url => {
 						.find(educationData['degree']['end'])
 						.text()}
 						`
+				.trim()
+				.trimNewLines(),
+		});
+	});
+
+	$(`${alsoPeopleData['sl']} > li`).each((i, elem) => {
+		person['alsoPeople'][i] = Object.assign({
+			name: $(elem)
+				.find(alsoPeopleData['name'])
+				.text()
+				.trim()
+				.trimNewLines(),
+			title: $(elem)
+				.find(alsoPeopleData['title'])
+				.text()
 				.trim()
 				.trimNewLines(),
 		});
