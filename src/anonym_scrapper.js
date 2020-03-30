@@ -19,6 +19,10 @@ fs.readFile(filePath, (err, html) => {
 	}).listen(port);
 });
 
+String.prototype.trimNewLines = function() {
+	return this.replace(/(\r\n|\n|\r)/gm, '');
+};
+
 const scrapper = async url => {
 	const { nameSl, titleSl, aboutSl, experienceSl, experienceData } = ANONYMOUS_PROFILE_SELECTORS;
 
@@ -41,13 +45,16 @@ const scrapper = async url => {
 	let person = {
 		name: $(nameSl)
 			.text()
-			.trim(),
+			.trim()
+			.trimNewLines(),
 		title: $(titleSl)
 			.text()
-			.trim(),
+			.trim()
+			.trimNewLines(),
 		about: $(aboutSl)
 			.text()
-			.trim(),
+			.trim()
+			.trimNewLines(),
 		experience: [],
 	};
 
@@ -56,19 +63,23 @@ const scrapper = async url => {
 			title: $(elem)
 				.find(experienceData['title'])
 				.text()
-				.trim(),
+				.trim()
+				.trimNewLines(),
 			company: $(elem)
 				.find(experienceData['company'])
 				.text()
-				.trim(),
+				.trim()
+				.trimNewLines(),
 			location: $(elem)
 				.find(experienceData['location'])
 				.text()
-				.trim(),
+				.trim()
+				.trimNewLines(),
 			about: $(elem)
 				.find(experienceData['about'])
 				.text()
-				.trim(),
+				.trim()
+				.trimNewLines(),
 		});
 	});
 
