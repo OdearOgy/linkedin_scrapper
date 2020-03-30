@@ -2,8 +2,8 @@ const puppeteer = require('puppeteer');
 const cheerio = require('cheerio');
 const fs = require('fs');
 const chromePath = '/usr/bin/google-chrome-stable';
-const { LOGIN_SELECTORS, PROFILE_SELECTORS, ANONYMOUS_PROFILE_SELECTORS } = require('./selectors');
-const { LOGIN_DATA } = require('./constants');
+const { LOGIN_SELECTORS, PROFILE_SELECTORS, ANONYMOUS_PROFILE_SELECTORS } = require('../shared/selectors');
+const { LOGIN_DATA } = require('../shared/constants');
 
 // https://www.linkedin.com/in/tigran-sargsyan-a7455a51/
 let [url, type] = process.argv.slice(2);
