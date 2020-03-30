@@ -25,19 +25,16 @@ String.prototype.trimNewLines = function() {
 
 const scrapper = async url => {
 	const { nameSl, titleSl, aboutSl, experienceData, educationData, alsoPeopleData } = ANONYMOUS_PROFILE_SELECTORS;
-
 	const browser = await puppeteer.launch({
 		headless: false,
 		slowMo: 20,
 	});
 
 	const page = await browser.newPage();
-
 	await page.setViewport({
 		width: 1280,
 		height: 720,
 	});
-
 	await page.goto(url);
 
 	const content = await page.content();

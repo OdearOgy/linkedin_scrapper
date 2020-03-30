@@ -27,6 +27,7 @@ const login = async page => {
 };
 
 const logged_scrapping = async page => {
+	const { nameSl, titleSl, aboutSl, experienceSl } = PROFILE_SELECTORS;
 	const content = await page.content();
 	const $ = cheerio.load(content);
 	let person = {
@@ -53,8 +54,6 @@ const logged_scrapping = async page => {
 };
 
 const scrapper = async profileUrl => {
-	const { nameSl, titleSl, aboutSl, experienceSl } = PROFILE_SELECTORS;
-
 	const browser = await puppeteer.launch({
 		headless: false,
 		slowMo: 20,
