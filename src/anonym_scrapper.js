@@ -20,7 +20,7 @@ fs.readFile(filePath, (err, html) => {
 });
 
 const scrapper = async url => {
-	const { nameSl, titleSl, aboutSl, experienceSl } = ANONYMOUS_PROFILE_SELECTORS;
+	const { nameSl, titleSl, aboutSl, experienceSl, experienceData } = ANONYMOUS_PROFILE_SELECTORS;
 
 	const browser = await puppeteer.launch({
 		headless: false,
@@ -54,19 +54,19 @@ const scrapper = async url => {
 	$(`${experienceSl} > li`).each((i, elem) => {
 		person['experience'][i] = Object.assign({
 			title: $(elem)
-				.find(`div > h3`)
+				.find(experienceData['title'])
 				.text()
 				.trim(),
 			company: $(elem)
-				.find(`div > h4 > a`)
+				.find(experienceData['company'])
 				.text()
 				.trim(),
 			location: $(elem)
-				.find(`div > div > p.experience-item__location.experience-item__meta-item`)
+				.find(experienceData['location'])
 				.text()
 				.trim(),
 			about: $(elem)
-				.find(`div > div > div > div > p`)
+				.find(experienceData['about'])
 				.text()
 				.trim(),
 		});

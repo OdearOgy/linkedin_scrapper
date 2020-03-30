@@ -18,6 +18,12 @@ const anon_prof_sl = {
 		'body > main > section.core-rail > section > section.top-card-layout > div > div.top-card-layout__entity-info-container > div:nth-child(1) > h2',
 	aboutSl: 'body > main > section.core-rail > section > section.summary.pp-section > p',
 	experienceSl: 'body > main > section.core-rail > section > section.experience.pp-section > ul',
+	experienceData: {
+		title: `div > h3`,
+		company: `div > h4 > a`,
+		location: `div > div > p.experience-item__location.experience-item__meta-item`,
+		about: `div > div > div > div > p`,
+	},
 };
 
 const prof_sl = {
