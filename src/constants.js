@@ -17,16 +17,26 @@ const anon_prof_sl = {
 	titleSl:
 		'body > main > section.core-rail > section > section.top-card-layout > div > div.top-card-layout__entity-info-container > div:nth-child(1) > h2',
 	aboutSl: 'body > main > section.core-rail > section > section.summary.pp-section > p',
-	experienceSl: 'body > main > section.core-rail > section > section.experience.pp-section > ul',
 	experienceData: {
-		title: `div > h3`,
-		company: `div > h4 > a`,
-		location: `div > div > p.experience-item__location.experience-item__meta-item`,
-		about: `div > div > div > div > p`,
+		sl: 'body > main > section.core-rail > section > section.experience.pp-section > ul',
+		title: 'div > h3',
+		company: 'div > h4 > a',
+		location: 'div > div > p.experience-item__location.experience-item__meta-item',
+		about: 'div > div > div > div > p',
 		date: {
-			start: `div > div > p.experience-item__duration.experience-item__meta-item > span > time.date-range__start-date`,
-			end: `div > div > p.experience-item__duration.experience-item__meta-item > span > time.date-range__end-date`,
-			total: `div > div > p.experience-item__duration.experience-item__meta-item > span > span`,
+			start:
+				'div > div > p.experience-item__duration.experience-item__meta-item > span > time.date-range__start-date',
+			end:
+				'div > div > p.experience-item__duration.experience-item__meta-item > span > time.date-range__end-date',
+			total: 'div > div > p.experience-item__duration.experience-item__meta-item > span > span',
+		},
+	},
+	educationData: {
+		sl: 'body > main > section.core-rail > section > section.education.pp-section > ul',
+		organization: 'div > h3',
+		degree: {
+			start: 'div > h4 > span:nth-child(1)',
+			end: 'div > h4 > span:nth-child(2)',
 		},
 	},
 };

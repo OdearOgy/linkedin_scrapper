@@ -20,11 +20,11 @@ fs.readFile(filePath, (err, html) => {
 });
 
 String.prototype.trimNewLines = function() {
-	return this.replace(/(\r\n|\n|\r)/gm, '');
+	return this.replace(/(\r\n\t|\n|\r|\t)/gm, '');
 };
 
 const scrapper = async url => {
-	const { nameSl, titleSl, aboutSl, experienceSl, experienceData } = ANONYMOUS_PROFILE_SELECTORS;
+	const { nameSl, titleSl, aboutSl, experienceData, educationData } = ANONYMOUS_PROFILE_SELECTORS;
 
 	const browser = await puppeteer.launch({
 		headless: false,
@@ -56,9 +56,10 @@ const scrapper = async url => {
 			.trim()
 			.trimNewLines(),
 		experience: [],
+		education: [],
 	};
 
-	$(`${experienceSl} > li`).each((i, elem) => {
+	$(`${experienceData['sl']} > li`).each((i, elem) => {
 		person['experience'][i] = Object.assign({
 			title: $(elem)
 				.find(experienceData['title'])
@@ -96,6 +97,26 @@ const scrapper = async url => {
 			about: $(elem)
 				.find(experienceData['about'])
 				.text()
+				.trim()
+				.trimNewLines(),
+		});
+	});
+
+	$(`${educationData['sl']} > li`).each((i, elem) => {
+		person['education'][i] = Object.assign({
+			organization: $(elem)
+				.find(educationData['organization'])
+				.text()
+				.trim()
+				.trimNewLines(),
+			degree: `
+					${$(elem)
+						.find(educationData['degree']['start'])
+						.text()} 
+					${$(elem)
+						.find(educationData['degree']['end'])
+						.text()}
+						`
 				.trim()
 				.trimNewLines(),
 		});
