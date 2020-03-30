@@ -70,6 +70,24 @@ const scrapper = async url => {
 				.text()
 				.trim()
 				.trimNewLines(),
+			date: {
+				start: $(elem)
+					.find(experienceData['date']['start'])
+					.text()
+					.trim()
+					.trimNewLines(),
+				end:
+					$(elem)
+						.find(experienceData['date']['end'])
+						.text()
+						.trim()
+						.trimNewLines() || 'present',
+				total: $(elem)
+					.find(experienceData['date']['total'])
+					.text()
+					.trim()
+					.trimNewLines(),
+			},
 			location: $(elem)
 				.find(experienceData['location'])
 				.text()

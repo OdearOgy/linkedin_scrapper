@@ -23,6 +23,11 @@ const anon_prof_sl = {
 		company: `div > h4 > a`,
 		location: `div > div > p.experience-item__location.experience-item__meta-item`,
 		about: `div > div > div > div > p`,
+		date: {
+			start: `div > div > p.experience-item__duration.experience-item__meta-item > span > time.date-range__start-date`,
+			end: `div > div > p.experience-item__duration.experience-item__meta-item > span > time.date-range__end-date`,
+			total: `div > div > p.experience-item__duration.experience-item__meta-item > span > span`,
+		},
 	},
 };
 
